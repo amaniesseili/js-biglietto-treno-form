@@ -8,12 +8,15 @@ const btnGenera = document.querySelector(".pulsante-genera");
 const btnAnnula = document.querySelector(".pulsante-annula");
 
 const pricePerKm = 0.21;
-const finalPrice = kmInputElement * pricePerKm ;
+const ticketPrice = kmInputElement * pricePerKm ;
 
-const discount20 =((kmInputElement * pricePerKm) * 20) / 100
-const discount40 =((kmInputElement* pricePerKm) * 40) / 100
 
 let discount = 0
+let discountAmount = (ticketPrice * discount) / 100
+const discountedTicketPrice = ticketPrice - discountAmount
+
+
+
 
 
 document.getElementById("username-input").innerHTML = `${userNameInputElement}`;
@@ -21,16 +24,6 @@ document.getElementById("km-input").innerHTML = `${kmInputElement}`;
 document.getElementById("age-input").innerHTML = `${ageInputElement}`;
 
 
-
-// if (ageInputElement < 18) {
-//     document.getElementById("ticket-type").innerHTML = ` Biglietto 20% `;
-// } else {
-// if ( userAge >= 18 && userAge < 65){
-//     document.getElementById("ticket-type").innerHTML = ` Biglietto Standard`;
-// } else if ( userAge >= 65){
-//     document.getElementById("ticket-type").innerHTML = ` Biglietto 40% `;
-// }
-// }
 
 
 
@@ -41,17 +34,65 @@ btnGenera.addEventListener("click", function(){
     const age = ageInputElement.value;
 
 
-    if (ageInputElement < 18) {
+
+    if (age < 18) {
         document.getElementById("ticket-type").innerHTML = ` Biglietto 20% `;
     } else {
-    if ( ageInputElement >= 18 && ageInputElement< 65){
+    if ( age >= 18 && age < 65){
         document.getElementById("ticket-type").innerHTML = ` Biglietto Standard`;
-    } else if ( ageInputElement >= 65){
+    } else if ( age >= 65){
         document.getElementById("ticket-type").innerHTML = ` Biglietto 40% `;
     }
     }
 
+    // perche mi da nan
+    // ----------------------------
+    if (age < 18) {
+        discount = 20
+        document.getElementById("ticket-price").innerHTML = discountedTicketPrice.toFixed(2) ;
+    } else {
+    if ( age >= 18 && age < 65){
+        document.getElementById("ticket-price").innerHTML = ticketPrice;
+    } else if ( age >= 65){
+        discount=40
+        document.getElementById("ticket-price").innerHTML = `${discountedTicketPrice.toFixed(2) } `;
+    }
+    }
+// ---------------------------------------
+// numero carrozzza "numero random tra 1 e 10 "
+
+var randomNumber =
+ Math.floor(Math.random() * 10) + 1;
+
+    if (age < 18) {
+        document.getElementById("Carrozza-number").innerHTML =  randomNumber;
+    } else {
+    if ( age >= 18 && age < 65){
+        document.getElementById("Carrozza-number").innerHTML =  randomNumber;
+    } else if ( age >= 65){
+        document.getElementById("Carrozza-number").innerHTML =  randomNumber;
+    }
+    }
+// ---------------------------------------
+// codice cp "numero random tra 1000 e 3000 "
+    min=1000
+    max=3000
+    var randomNumber =
+ Math.floor(Math.random() * (max - min + 1)) + min;
+
+    if (age < 18) {
+        document.getElementById("codice-cp").innerHTML =  randomNumber;
+    } else {
+    if ( age >= 18 && age < 65){
+        document.getElementById("codice-cp").innerHTML =  randomNumber;
+    } else if ( age >= 65){
+        document.getElementById("codice-cp").innerHTML =  randomNumber;
+    }
+    }
+
 })
+
+
 
 
 
