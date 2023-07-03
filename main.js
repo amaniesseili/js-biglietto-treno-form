@@ -22,15 +22,15 @@ document.getElementById("age-input").innerHTML = `${ageInputElement}`;
 
 
 
-if (ageInputElement < 18) {
-    document.getElementById("age-input").innerHTML = ` Complimenti hai uno sconto del 20% `;
-} else {
-if ( userAge >= 18 && userAge < 65){
-    document.getElementById("age-input").innerHTML = ` Ci dispiace, nessun sconto per te!`;
-} else if ( userAge >= 65){
-    document.getElementById("age-input").innerHTML = ` Complimenti hai uno sconto del 40% `;
-}
-}
+// if (ageInputElement < 18) {
+//     document.getElementById("ticket-type").innerHTML = ` Biglietto 20% `;
+// } else {
+// if ( userAge >= 18 && userAge < 65){
+//     document.getElementById("ticket-type").innerHTML = ` Biglietto Standard`;
+// } else if ( userAge >= 65){
+//     document.getElementById("ticket-type").innerHTML = ` Biglietto 40% `;
+// }
+// }
 
 
 
@@ -40,7 +40,16 @@ btnGenera.addEventListener("click", function(){
     const km = kmInputElement.value;
     const age = ageInputElement.value;
 
-    // tableTicketElement.innerHTML =
+
+    if (ageInputElement < 18) {
+        document.getElementById("ticket-type").innerHTML = ` Biglietto 20% `;
+    } else {
+    if ( ageInputElement >= 18 && ageInputElement< 65){
+        document.getElementById("ticket-type").innerHTML = ` Biglietto Standard`;
+    } else if ( ageInputElement >= 65){
+        document.getElementById("ticket-type").innerHTML = ` Biglietto 40% `;
+    }
+    }
 
 })
 
