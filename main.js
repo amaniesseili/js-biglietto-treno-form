@@ -47,6 +47,7 @@ btnGenera.addEventListener("click", function(){
 
     // perche mi da nan
     // ----------------------------
+    // costo biglietto
     if (age < 18) {
         discount = 20
         document.getElementById("ticket-price").innerHTML = discountedTicketPrice.toFixed(2) ;
