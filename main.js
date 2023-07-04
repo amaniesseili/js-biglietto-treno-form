@@ -32,6 +32,7 @@ btnGenera.addEventListener("click", function(){
     const username = userNameInputElement.value;
     const km = kmInputElement.value;
     const age = ageInputElement.value;
+    const price = parseInt(kmInputElement.value) * 0.21;
 
 
 
@@ -50,7 +51,7 @@ btnGenera.addEventListener("click", function(){
     // costo biglietto
     if (age < 18) {
         discount = 20
-        document.getElementById("ticket-price").innerHTML = discountedTicketPrice.toFixed(2) ;
+        document.getElementById("ticket-price").innerHTML = (price - (price *20) / 100) ;
     } else {
     if ( age >= 18 && age < 65){
         document.getElementById("ticket-price").innerHTML = ticketPrice;
@@ -93,6 +94,7 @@ var randomNumber =
 
 })
 
+// ----------------------------
 
 
 
